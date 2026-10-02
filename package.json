@@ -1,0 +1,24 @@
+{
+  "name": "cron-preview",
+  "version": "1.0.0",
+  "description": "本地 Cron 表达式解释与触发时间预览服务（API 与 CLI），统一 UTC，五字段方言",
+  "type": "module",
+  "main": "dist/src/server/index.js",
+  "bin": {
+    "cron-preview": "dist/src/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --experimental-sqlite dist/src/server/index.js",
+    "demo": "npm run build && node --experimental-sqlite dist/src/cli/index.js demo",
+    "test": "npm run build && node --experimental-sqlite --test \"dist/test/*.test.js\"",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
